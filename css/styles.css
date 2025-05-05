@@ -7,11 +7,11 @@
   --primary-50: #f0f9ff;
   --primary-100: #e0f2fe;
   --primary-200: #bae6fd;
-  --primary-300: #7dd3fc;
-  --primary-400: #f54242;
+  --primary-300: #5012b3;
+  --primary-400: #f53333;
   --primary-500: #dd1e2e; 
-  --primary-700: #e7dddd;
-  --primary-800: #850707;
+  --primary-700: #d48585;
+  --primary-800: #ca2929;
   --primary-900: #6e0c0c;
 
   
@@ -332,7 +332,7 @@ img {
 
 .footer-logo {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 2.75rem;
   margin-bottom: 1rem;
   display: block;
 }
@@ -572,4 +572,27 @@ button.btn:hover {
   .contact-section {
       grid-template-columns: 1fr;
   }
+}
+body {
+  max-width: 0 auto;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 2.6;
+}
+h1, h2 {
+  color: #2c3e50;
+}
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+h2 {
+  margin-top: 30px;
+}
+p {
+  margin-bottom: 20px;
 }

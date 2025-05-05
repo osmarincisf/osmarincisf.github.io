@@ -209,4 +209,22 @@ document.addEventListener('DOMContentLoaded', function() {
     lazyImages.forEach(img => {
       imageObserver.observe(img);
     });
+   // Lazy Loading optimizado para Terser
+   document.addEventListener("DOMContentLoaded", () => {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            observer.unobserve(img);
+          }
+        });
+      });
+      
+      lazyImages.forEach(img => observer.observe(img));
+    }
+  });
   }
