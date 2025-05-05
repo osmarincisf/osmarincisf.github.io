@@ -1,5 +1,4 @@
 
-
 @import url('additional.css');
 
 :root {
@@ -584,7 +583,7 @@ h1, h2 {
   color: #7a2020;
 }
 a {
-  color: #3498db;
+  color: #3d4449;
   text-decoration: none;
 }
 a:hover {
