@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento de Computadores - Guía Completa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MantenimientoPC</div>
+                <ul class="nav-links">
+                    <li><a href="#diagnostico-inicial">Diagnóstico Inicial</a></li>
+                    <li><a href="#mantenimiento-preventivo">Mantenimiento Preventivo</a></li>
+                    <li><a href="#diagnostico-posterior">Diagnóstico Posterior</a></li>
+                    <li><a href="#recomendaciones">Recomendaciones</a></li>
+                </ul>
+                <div class="menu-toggle" aria-label="Abrir menú"></div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <h1>Mantenimiento de Computadores</h1>
+                <p>Guía completa para el diagnóstico, mantenimiento y optimización de tu equipo informático</p>
+                <a href="#diagnostico-inicial" class="btn">Comenzar</a>
+            </div>
+        </section>
+
+        <section id="diagnostico-inicial">
+            <div class="container">
+                <h2>Diagnóstico Inicial</h2>
+                <div class="card">
+                    <p>Antes de realizar cualquier mantenimiento, es crucial diagnosticar el estado actual de tu computador para identificar problemas potenciales.</p>
+                    
+                    <h3>Herramientas de Diagnóstico</h3>
+                    <ul class="step-list">
+                        <li>Monitor de rendimiento (Windows) o Activity Monitor (Mac)</li>
+                        <li>Software de diagnóstico de hardware como HWiNFO o CPU-Z</li>
+                        <li>Pruebas de estrés para componentes clave (CPU, GPU, RAM)</li>
+                        <li>Análisis de temperatura con herramientas como Core Temp o HWMonitor</li>
+                    </ul>
+                    
+                    <h3>Proceso de Diagnóstico</h3>
+                    <div class="accordion">
+                        <button class="accordion-header">Rendimiento del Sistema</button>
+                        <div class="accordion-content" style="display: block;">
+                            <p>Verifica el uso de CPU, memoria RAM y disco duro en condiciones normales de uso. Un uso consistentemente alto puede indicar problemas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion">
+                        <button class="accordion-header">Temperaturas</button>
+                        <div class="accordion-content">
+                            <p>Monitorea las temperaturas de la CPU, GPU y otros componentes. Temperaturas elevadas pueden indicar problemas de refrigeración o acumulación de<br>polvo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion">
+                        <button class="accordion-header">Errores del Sistema</button>
+                        <div class="accordion-content">
+                            <p>Revisa el registro de eventos de Windows o la consola de macOS para identificar errores recurrentes que puedan indicar problemas de hardware o<br>software.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mantenimiento-preventivo">
+            <div class="container">
+                <h2>Mantenimiento Preventivo</h2>
+                <p>El mantenimiento preventivo regular puede extender significativamente la vida útil de tu computador y mejorar su rendimiento.</p>
+                
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="hardware">Limpieza de Hardware</button>
+                        <button class="tab-btn" data-tab="software">Limpieza de Software</button>
+                    </div>
+                    
+                    <div id="hardware" class="tab-content active">
+                        <h3>Limpieza Física del Equipo</h3>
+                        <ul class="step-list">
+                            <li>Apaga y desconecta completamente el equipo de la energía</li>
+                            <li>Utiliza aire comprimido para eliminar el polvo de ventiladores y componentes</li>
+                            <li>Limpia las rejillas de ventilación con un pincel suave</li>
+                            <li>Para componentes muy sucios, usa alcohol isopropílico y hisopos</li>
+                            <li>Limpia los contactos de la memoria RAM y tarjetas de expansión</li>
+                            <li>Aplica pasta térmica nueva en el procesador si es necesario</li>
+                            <li>Verifica que todos los cables estén correctamente conectados</li>
+                        </ul>
+                        
+                        <h3>Precauciones</h3>
+                        <ul class="warning-list">
+                            <li>Nunca uses una aspiradora directamente sobre los componentes</li>
+                            <li>Evita tocar los circuitos con las manos para prevenir descargas electrostáticas</li>
+                            <li>Usa una pulsera antiestática cuando manipules componentes sensibles</li>
+                            <li>No rocíes líquidos directamente sobre los componentes</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="software" class="tab-content">
+                        <h3>Optimización del Sistema Operativo</h3>
+                        <ul class="step-list">
+                            <li>Desinstala programas que no utilices</li>
+                            <li>Elimina archivos temporales y limpia la caché</li>
+                            <li>Desfragmenta el disco duro (no necesario para SSD)</li>
+                            <li>Actualiza el sistema operativo y controladores</li>
+                            <li>Configura programas que se inician automáticamente con el sistema</li>
+                            <li>Ejecuta un análisis antivirus y anti-malware</li>
+                            <li>Realiza copias de seguridad de tus datos importantes</li>
+                        </ul>
+                        
+                        <h3>Herramientas Recomendadas</h3>
+                        <ul class="checklist">
+                            <li>CCleaner para limpieza temporal y registro</li>
+                            <li>Malwarebytes para protección contra malware</li>
+                            <li>WinDirStat para análisis de uso de disco</li>
+                            <li>Autoruns para gestionar programas de inicio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diagnostico-posterior">
+            <div class="container">
+                <h2>Diagnóstico Después del Mantenimiento</h2>
+                <div class="card">
+                    <p>Después de realizar el mantenimiento, es importante verificar que todo funcione correctamente y que se hayan resuelto los problemas identificados inicialmente.</p>
+                    
+                    <h3>Pruebas Post-Mantenimiento</h3>
+                    <ul class="checklist">
+                        <li>Verifica la temperatura de los componentes bajo carga</li>
+                        <li>Comprueba que el rendimiento general haya mejorado</li>
+                        <li>Confirma que los ventiladores funcionen correctamente</li>
+                        <li>Asegúrate de que no haya ruidos anormales</li>
+                        <li>Prueba todos los puertos y conexiones</li>
+                        <li>Verifica que el sistema operativo arranque más rápido</li>
+                    </ul>
+                    
+                    <h3>Comparativa de Resultados</h3>
+                    <p>Compara los resultados del diagnóstico posterior con los del diagnóstico inicial para evaluar la efectividad del mantenimiento realizado.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="recomendaciones">
+            <div class="container">
+                <h2>Recomendaciones y Mejoras</h2>
+                <p>Basado en el diagnóstico y mantenimiento realizado, aquí tienes algunas recomendaciones para optimizar aún más tu computador:</p>
+                
+                <div class="recommendation-grid">
+                    <div class="recommendation-card">
+                        <h3>Actualización de Hardware</h3>
+                        <p>Considera actualizar componentes clave como la RAM, disco duro a SSD, o tarjeta gráfica según tus necesidades y presupuesto.</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h3>Software de Monitoreo</h3>
+                        <p>Instala herramientas de monitoreo para mantener un ojo en el rendimiento y temperatura de tu sistema de forma regular.</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h3>Rutina de Mantenimiento</h3>
+                        <p>Establece un calendario de mantenimiento regular (cada 3-6 meses) para mantener tu equipo en óptimas condiciones.</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h3>Enfriamiento Adicional</h3>
+                        <p>Si las temperaturas siguen altas, considera añadir ventiladores adicionales o mejorar el sistema de refrigeración.</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h3>Optimización Energética</h3>
+                        <p>Ajusta la configuración de energía para equilibrar rendimiento y consumo según tus necesidades.</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h3>Protección contra Sobretensiones</h3>
+                        <p>Usa un regulador de voltaje o UPS para proteger tu equipo de picos de energía que puedan dañar los componentes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Mantenimiento de Computadores - Guía Completa</p>
+            <p>Esta página web es accesible y está diseñada para proporcionar información útil sobre mantenimiento de equipos informáticos.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
