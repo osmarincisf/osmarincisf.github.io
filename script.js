@@ -1,467 +1,74 @@
-/* Alto contraste para títulos h2 y h3 en todos los modos */
-h2, h3 {
-    color: #fff200 !important;
-    background: none;
-    padding: 0;
-    border-radius: 0;
-    font-weight: bold;
-    text-shadow: none;
-}
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --light-color: #ecf0f1;
-    --dark-color: #2c3e50;
-/* Modo oscuro y alto contraste para accesibilidad visual */
-@media (prefers-color-scheme: dark) {
-        body {
-            background: #1a1a1a;
-            color: #fff0f0;
+// Funcionalidad para el menú responsive
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// Funcionalidad para las pestañas
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        button.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    });
+});
+
+// Funcionalidad para los acordeones
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        
+        header.classList.toggle('active');
+        content.classList.toggle('active');
+        
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
         }
-        header, .container, .card, .tab-content, .accordion-content, footer {
-            background: #222;
-            color: #fff0f0;
-            border: none;
-            box-shadow: none;
+    });
+});
+
+// Mejora de accesibilidad para teclado
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+        document.body.classList.add('focus-visible');
+    }
+});
+
+document.addEventListener('mousedown', function() {
+    document.body.classList.remove('focus-visible');
+});
+
+// Smooth scrolling para enlaces de navegación
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
-            .accordion-header {
-                background: #2d0000;
-                color: #ff9999;
-                border: none;
-            }
-            .accordion-content {
-                background: #222;
-                color: #fff0f0;
-                border: none;
-                box-shadow: none;
-            }
-            .tab-btn.active {
-                background: #ff9999;
-                color: #fff0f0;
-                border: none;
-                box-shadow: none;
-            }
-            .tab-btn {
-                background: #2d0000;
-                color: #ff9999;
-                border: none;
-                box-shadow: none;
-            }
-            .btn {
-                background: #ff9999;
-                color: #fff0f0;
-                border: none;
-                box-shadow: none;
-            }
-            .recommendation-card {
-                background: #222;
-                color: #ff9999;
-                border: none;
-                box-shadow: none;
-            }
-}
-    --success-color: #27ae60;
-    --warning-color: #f39c12;
-}
+    });
+});
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 1.5rem;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover, .nav-links a:focus {
-    color: var(--secondary-color);
-    outline: none;
-}
-
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--secondary-color);
-    color: white;
-    padding: 8px;
-    z-index: 100;
-    text-decoration: none;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-section {
-    padding: 3rem 0;
-    scroll-margin-top: 80px;
-}
-
-h1, h2, h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-h2 {
-    font-size: 2rem;
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    margin-top: 1.5rem;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-.hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/><path d="M0 0L100 100" stroke="%233498db" stroke-width="2"/><path d="M100 0L0 100" stroke="%233498db" stroke-width="2"/></svg>');
-    background-size: cover;
-    color: white;
-    text-align: center;
-    padding: 5rem 0;
-}
-
-.hero h1 {
-    color: white;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-}
-
-.btn {
-    display: inline-block;
-    background: var(--secondary-color);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn:hover, .btn:focus {
-    background: #2980b9;
-    outline: none;
-}
-
-.card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.step-list {
-    list-style-type: none;
-    margin-left: 1rem;
-}
-
-.step-list li {
-    margin-bottom: 0.8rem;
-    position: relative;
-    padding-left: 30px;
-}
-
-.step-list li:before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--secondary-color);
-    font-weight: bold;
-}
-
-.checklist {
-    list-style-type: none;
-}
-
-.checklist li {
-    margin-bottom: 0.5rem;
-    position: relative;
-    padding-left: 30px;
-}
-
-.checklist li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--success-color);
-    font-weight: bold;
-}
-
-.warning-list {
-    list-style-type: none;
-}
-
-.warning-list li {
-    margin-bottom: 0.5rem;
-    position: relative;
-    padding-left: 30px;
-}
-
-.warning-list li:before {
-    content: "!";
-    position: absolute;
-    left: 0;
-    color: var(--warning-color);
-    font-weight: bold;
-    width: 20px;
-    height: 20px;
-    background: #fdf0e6;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 20px;
-}
-
-.tab-container {
-    margin-top: 2rem;
-}
-
-.tab-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-
-.tab-btn {
-    padding: 0.8rem 1.5rem;
-    background: #e0e0e0;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.tab-btn:first-child {
-    border-radius: 4px 0 0 4px;
-}
-
-.tab-btn:last-child {
-    border-radius: 0 4px 4px 0;
-}
-
-.tab-btn:hover {
-    background: #d0d0d0;
-}
-
-.tab-btn.active {
-    background: var(--secondary-color);
-    color: white;
-}
-
-.tab-content {
-    display: none;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 0 4px 4px 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.recommendation-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.recommendation-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    transition: transform 0.3s;
-}
-
-.recommendation-card:hover {
-    transform: translateY(-5px);
-}
-
-.recommendation-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.recommendation-card p {
-    margin-bottom: 1rem;
-}
-
-.accordion {
-    margin-bottom: 1rem;
-}
-
-.accordion-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 1rem;
-    cursor: pointer;
-    border: none;
-    text-align: left;
-    width: 100%;
-    font-size: 1.1rem;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 4px;
-}
-
-.accordion-header:after {
-    content: "+";
-    font-size: 1.5rem;
-}
-
-.accordion-header.active:after {
-    content: "-";
-}
-
-.accordion-content {
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s, padding 0.3s;
-    background: white;
-    border-radius: 0 0 4px 4px;
-    width: 100%;
-}
-
-.accordion-content.active {
-    padding: 1rem;
-    max-height: 500px;
-    width: 100%;
-}
-
-footer {
-    background: var(--dark-color);
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: var(--primary-color);
-        padding: 1rem;
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .nav-links li {
-        margin: 0.5rem 0;
-    }
-    
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: white;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .tab-buttons {
-        flex-direction: column;
-    }
-    
-    .tab-btn {
-        border-radius: 4px;
-        margin-bottom: 0.5rem;
-    }
-    
-    .recommendation-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.focus-visible:focus {
-    outline: 3px solid var(--secondary-color);
-    outline-offset: 2px;
-            h2, h3 {
-                color: #fff200;
-                background: #1a237e;
-                padding: 0.25em 0.5em;
-                border-radius: 4px;
-                font-weight: bold;
-                text-shadow: none;
-            }
-}
+// Cerrar menú móvil al hacer clic en un enlace
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+    });
+});
